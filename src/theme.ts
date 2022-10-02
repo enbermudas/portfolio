@@ -1,10 +1,9 @@
 const theme = {
-  fontFamily: {
-    ms: "MS sans-serif"
-  },
-  color: {
-    grayPrimary: "#BFBFBF",
+  fontFamily: "MS sans-serif",
+  colors: {
+    grayMain: "#BFBFBF",
     graySecondary: "#808080",
+    grayTertiary: "#DBDBDB",
     white: "#FFFFFF",
     black: "#000000",
     desktopBg: "#008080",

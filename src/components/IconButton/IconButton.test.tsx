@@ -1,7 +1,6 @@
 import { render, fireEvent } from "@testing-library/react";
-import IconButton from "./IconButton";
-import iconHelp from "../icons/icon-help.svg";
-import renderer from "../test-renderer";
+import IconButton from ".";
+import renderer from "../../test-renderer";
 
 const onClick = jest.fn();
 

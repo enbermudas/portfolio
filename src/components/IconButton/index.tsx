@@ -1,9 +1,9 @@
 import { MouseEventHandler } from "react";
 import StyledIconButton from "./IconButton.styled";
-import { ReactComponent as IconClose } from "../icons/icon-close.svg";
-import { ReactComponent as IconHelp } from "../icons/icon-help.svg";
-import { ReactComponent as IconMaximize } from "../icons/icon-maximize.svg";
-import { ReactComponent as IconMinimize } from "../icons/icon-minimize.svg";
+import { ReactComponent as IconClose } from "../../icons/icon-close.svg";
+import { ReactComponent as IconHelp } from "../../icons/icon-help.svg";
+import { ReactComponent as IconMaximize } from "../../icons/icon-maximize.svg";
+import { ReactComponent as IconMinimize } from "../../icons/icon-minimize.svg";
 
 type Context = "close"| "help" | "maximize" | "minimize";
 

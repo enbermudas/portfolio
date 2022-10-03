@@ -2,7 +2,7 @@ import { useState } from "react";
 import { StyledDesktop, Icons, TaskBar, StartButton, StartIcon } from "./Desktop.styled";
 import startIcon from "../../images/start.png";
 import Icon from "../Icon";
-import Folder, { FolderProps } from "../Folder";
+import Folder, { FolderProps, FileType } from "../Folder";
 
 const top = () => Math.random() * 200 + 200;
 const left = () => Math.random() * 600 + 200;
@@ -25,7 +25,15 @@ const Desktop = () => {
         id: "projects",
         icon: "projects_mini",
         name: "Proyectos",
-        files: [],
+        files: [
+          {
+            id: "types-doodler",
+            icon: "link",
+            name: "Types Doodler",
+            type: "link" as FileType,
+            onClick: () => window.open("https://enbermudez.github.io/types-doodler/", '_blank', 'noopener,noreferrer')
+          }
+        ],
         onMinimize: () => {},
         onMaximize: () => {},
         onClose: () => {},
@@ -44,7 +52,16 @@ const Desktop = () => {
         id: "experience",
         icon: "experience_mini",
         name: "Experiencia",
-        files: [],
+        files: [
+          {
+            id: "mercadolibre",
+            icon: "notepad",
+            name: "MercadoLibre",
+            type: "text" as FileType,
+            content: "Acá iría la descripción del trabajo.",
+            onClick: () => {}
+          }
+        ],
         onMinimize: () => {},
         onMaximize: () => {},
         onClose: () => {},
@@ -62,6 +79,7 @@ const Desktop = () => {
   const onContact = () => {};
   const onSendEmail = () => {};
   const onStart = () => {};
+  const onBin = () => {};
 
   return (
     <StyledDesktop data-testid="desktop-testid">
@@ -107,12 +125,20 @@ const Desktop = () => {
           onClick={onSendEmail}
           testId="send-email-testid"
         />
+
+        <Icon
+          title="Papelera"
+          icon="bin"
+          onClick={onBin}
+          testId="bin-testid"
+        />
       </Icons>
 
       <>
         {!!folders.length && folders?.map((folder) => {
           return (
             <Folder
+              key={folder.id}
               id={folder.id}
               icon={folder.icon}
               name={folder.name}

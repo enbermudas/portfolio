@@ -35,7 +35,7 @@ const useClickInside = (ref: MutableRefObject<any>, callback: Function) => {
   });
 };
 
-type FileType = "link" | "text";
+export type FileType = "link" | "text";
 
 export interface File {
   id: string;

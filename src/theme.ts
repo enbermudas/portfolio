@@ -1,5 +1,5 @@
 const theme = {
-  fontFamily: "MS sans-serif",
+  fontFamily: "MS98",
   colors: {
     grayMain: "#BFBFBF",
     graySecondary: "#808080",

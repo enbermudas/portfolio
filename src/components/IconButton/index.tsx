@@ -10,6 +10,7 @@ type Context = "close"| "help" | "maximize" | "minimize";
 interface IconButtonProps {
   context: Context;
   onClick: MouseEventHandler<HTMLButtonElement>;
+  testId: string;
   disabled?: boolean;
 };
 
@@ -20,10 +21,10 @@ const renderIcon = () => ({
   minimize: <IconMinimize/>
 });
 
-const IconButton = ({ context, onClick, disabled = false }: IconButtonProps) => {
+const IconButton = ({ context, onClick, testId, disabled = false }: IconButtonProps) => {
   return (
     <StyledIconButton
-      data-testid="iconbutton-testid"
+      data-testid={testId}
       onClick={onClick}
       disabled={disabled}
     >

@@ -6,7 +6,7 @@ const onClick = jest.fn();
 
 describe("Components/IconButton", () => {
   it("Calls the onClick handler", () => {
-    const { getByTestId } = render(renderer(<IconButton context="help" onClick={onClick} />));
+    const { getByTestId } = render(renderer(<IconButton context="help" onClick={onClick} testId="iconbutton-testid" />));
     fireEvent.click(getByTestId("iconbutton-testid"));
 
     expect(onClick).toHaveBeenCalledTimes(1);

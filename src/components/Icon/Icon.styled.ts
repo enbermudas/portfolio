@@ -20,7 +20,9 @@ const Image = styled.img`
 const Title = styled.div`
   font-family: ${props => props.theme.fontFamily};
   text-align: center;
-  font-size: 16px;
+  font-size: 15px;
+  color: ${props => props.theme.colors.white};
+  letter-spacing: 1px;
 `;
 
 export {

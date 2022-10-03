@@ -15,6 +15,7 @@
     "react-scripts": "5.0.1",
     "sass": "^1.55.0",
     "styled-components": "^5.3.6",
+    "types-doodler": "^0.0.5-rc1-alpha",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"
   },

@@ -2,3 +2,8 @@
   font-family: "MS98";
   src: local("MS98"), url("../src/fonts/windows98.ttf") format("truetype");
 }
+
+body {
+  margin: 0;
+  padding: 0;
+}

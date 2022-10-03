@@ -5,6 +5,9 @@ import startIcon from "../../images/start.png";
 import Icon from "../Icon";
 import Folder, { FolderProps } from "../Folder";
 
+const top = () => Math.random() * 200 + 200;
+const left = () => Math.random() * 200 + 200;
+
 const Desktop = () => {
   const [folders, setFolders] = useState<FolderProps[]>([]);
 
@@ -26,8 +29,10 @@ const Desktop = () => {
         files: [],
         onMinimize: () => {},
         onMaximize: () => {},
-        onClose: () => onFolderClose("projects"),
-        testId: "projects-folder-testid"
+        onClose: () => {},
+        testId: "projects-folder-testid",
+        top: top(),
+        left: left(),
       }];
 
       setFolders(newFolders);
@@ -43,8 +48,10 @@ const Desktop = () => {
         files: [],
         onMinimize: () => {},
         onMaximize: () => {},
-        onClose: () => onFolderClose("experience"),
-        testId: "experience-folder-testid"
+        onClose: () => {},
+        testId: "experience-folder-testid",
+        top: top(),
+        left: left(),
       }];
 
       setFolders(newFolders);
@@ -110,7 +117,7 @@ const Desktop = () => {
               key={folder.id}
               axis="both"
               handle=".handle"
-              defaultPosition={{x: 200, y: 300}}
+              defaultPosition={{x: folder.top || 0, y: folder.left || 0 }}
               grid={[25, 25]}
               scale={1}
             >
@@ -122,7 +129,7 @@ const Desktop = () => {
                   files={folder.files}
                   onMinimize={folder.onMinimize}
                   onMaximize={folder.onMaximize}
-                  onClose={folder.onClose}
+                  onClose={() => onFolderClose(folder.id)}
                   testId={folder.testId}
                 />
               </div>

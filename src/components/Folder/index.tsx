@@ -53,6 +53,8 @@ export interface FolderProps {
   onMaximize: MouseEventHandler<HTMLButtonElement>;
   onClose: MouseEventHandler<HTMLButtonElement>;
   testId: string;
+  top?: number;
+  left?: number;
 };
 
 const Folder = ({

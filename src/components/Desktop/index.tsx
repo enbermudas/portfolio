@@ -1,12 +1,11 @@
 import { useState } from "react";
-import Draggable from "react-draggable";
 import { StyledDesktop, Icons, TaskBar, StartButton, StartIcon } from "./Desktop.styled";
 import startIcon from "../../images/start.png";
 import Icon from "../Icon";
 import Folder, { FolderProps } from "../Folder";
 
 const top = () => Math.random() * 200 + 200;
-const left = () => Math.random() * 200 + 200;
+const left = () => Math.random() * 600 + 200;
 
 const Desktop = () => {
   const [folders, setFolders] = useState<FolderProps[]>([]);
@@ -113,27 +112,18 @@ const Desktop = () => {
       <>
         {!!folders.length && folders?.map((folder) => {
           return (
-            <Draggable
-              key={folder.id}
-              axis="both"
-              handle=".handle"
-              defaultPosition={{x: folder.top || 0, y: folder.left || 0 }}
-              grid={[25, 25]}
-              scale={1}
-            >
-              <div>
-                <Folder
-                  id={folder.id}
-                  icon={folder.icon}
-                  name={folder.name}
-                  files={folder.files}
-                  onMinimize={folder.onMinimize}
-                  onMaximize={folder.onMaximize}
-                  onClose={() => onFolderClose(folder.id)}
-                  testId={folder.testId}
-                />
-              </div>
-            </Draggable>
+            <Folder
+              id={folder.id}
+              icon={folder.icon}
+              name={folder.name}
+              files={folder.files}
+              onMinimize={folder.onMinimize}
+              onMaximize={folder.onMaximize}
+              onClose={() => onFolderClose(folder.id)}
+              testId={folder.testId}
+              top={folder.top}
+              left={folder.left}
+            />
           )
         })}
       </>

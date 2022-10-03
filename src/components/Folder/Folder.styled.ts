@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+const Wrapper = styled("div")<{ inactive: boolean }>`
+  z-index: ${props => props.inactive ? 500 : 1000 };
+`;
+
 const Frame = styled.div`
   width: 100%;
   min-width: 432px;
@@ -135,6 +139,7 @@ const Content = styled.div`
 `;
 
 export {
+  Wrapper,
   Frame,
   Title,
   TitleLeft,

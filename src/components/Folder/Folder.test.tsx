@@ -32,6 +32,8 @@ describe("Components/Folder", () => {
       onMaximize={() => {}}
       onClose={() => {}}
       testId="projects"
+      top={0}
+      left={0}
     />));
 
     fireEvent.click(getByTestId("test1-testid"));
@@ -59,6 +61,8 @@ describe("Components/Folder", () => {
       onMaximize={() => {}}
       onClose={() => {}}
       testId="projects"
+      top={0}
+      left={0}
     />));
 
     const folderTitle = getByTestId("folder-title-testid");
@@ -85,6 +89,8 @@ describe("Components/Folder", () => {
       onMaximize={() => {}}
       onClose={() => {}}
       testId="projects"
+      top={0}
+      left={0}
     />));
 
     fireEvent.click(document);

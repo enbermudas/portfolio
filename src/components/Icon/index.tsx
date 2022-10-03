@@ -6,18 +6,20 @@ interface IconProps {
   icon: string;
   onClick: MouseEventHandler<HTMLButtonElement>;
   testId: string;
+  dark?: boolean;
 };
 
 const Icon = ({
   title,
   icon,
   testId,
-  onClick
+  onClick,
+  dark = false
 }: IconProps) => {
   return (
     <StyledIcon data-testid={testId} onClick={onClick}>
       <Image src={require(`../../images/${icon}.png`)} alt={title} />
-      <Title>{title}</Title>
+      <Title dark={dark}>{title}</Title>
     </StyledIcon>
   );
 };

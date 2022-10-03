@@ -17,11 +17,11 @@ const Image = styled.img`
   height: 48px;
 `;
 
-const Title = styled.div`
+const Title = styled("div")<{ dark: boolean }>`
   font-family: ${props => props.theme.fontFamily};
   text-align: center;
   font-size: 15px;
-  color: ${props => props.theme.colors.white};
+  color: ${props => props.dark ? props.theme.colors.black : props.theme.colors.white };
   letter-spacing: 1px;
 `;
 

@@ -7,6 +7,7 @@ const theme = {
     white: "#FFFFFF",
     black: "#000000",
     desktopBg: "#008080",
+    borderShadow: "rgb(162, 141, 104)",
     windowTitle: {
       grayDark: "#7B7B7B",
       grayLight: "#ADADAD",

@@ -1,7 +1,10 @@
 import { render } from "@testing-library/react";
 import App from "./App";
+import renderer from "./test-renderer";
 
-test("renders learn react link", () => {
-  render(<App />);
-  expect(true).toBeTruthy();
+describe("App", () => {
+  it("Renders correctly", () => {
+    const container = render(renderer(<App />));
+    expect(container).toMatchSnapshot();
+  });
 });

@@ -5,6 +5,8 @@ const StyledDesktop = styled.div`
   height: 100vh;
   display: flex;
   background: ${props => props.theme.colors.desktopBg};
+  position: relative;
+  overflow: hidden;
 `;
 
 const Icons = styled.div`
@@ -12,7 +14,7 @@ const Icons = styled.div`
   top: 0;
   overflow: hidden;
   width: 100%;
-  height: calc(100% - 46px);
+  height: calc(100% - 36px);
   display: grid;
   grid-template-columns: repeat(2, 92px);
   grid-template-rows: repeat(4, 100px);

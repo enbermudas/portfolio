@@ -2,38 +2,72 @@ import { render, fireEvent } from "@testing-library/react";
 import Desktop from ".";
 import renderer from "../../test-renderer";
 
-const onStart = jest.fn();
-const onProjects = jest.fn();
-const onExperience = jest.fn();
-const onSendEmail = jest.fn();
-const onTechnologies = jest.fn();
-const onContact = jest.fn();
-const onEducation = jest.fn();
-
 describe("Components/Desktop", () => {
-  it("Calls the start's onClick handler", () => {
-    const { getByTestId } = render(renderer(
-      <Desktop
-        onStart={onStart}
-        onProjects={onProjects}
-        onExperience={onExperience}
-        onSendEmail={onSendEmail}
-        onTechnologies={onTechnologies}
-        onContact={onContact}
-        onEducation={onEducation}
-      />
-    ));
+  it("Opens the projects folder if the projects icon is clicked", async () => {
+    const { getByTestId, queryByTestId } = render(renderer(<Desktop/>));
 
-    fireEvent.click(getByTestId("start-button-testid"));
-    expect(onStart).toHaveBeenCalledTimes(1);
+    const projectsIcon = getByTestId("projects-testid");
+    fireEvent.click(projectsIcon);
 
-    fireEvent.click(getByTestId("projects-testid"));
-    expect(onProjects).toHaveBeenCalledTimes(1);
+    const projectsFolder = await queryByTestId("projects-folder-testid");
+    expect(projectsFolder).toBeVisible();
+  });
 
-    fireEvent.click(getByTestId("experience-testid"));
-    expect(onExperience).toHaveBeenCalledTimes(1);
+  it("Does not opens the projects folder if it is already open", async () => {
+    const { getByTestId, queryByTestId } = render(renderer(<Desktop/>));
 
-    fireEvent.click(getByTestId("send-email-testid"));
-    expect(onSendEmail).toHaveBeenCalledTimes(1);
+    const projectsIcon = getByTestId("projects-testid");
+    fireEvent.click(projectsIcon);
+    fireEvent.click(projectsIcon);
+
+    const projectsFolder = await queryByTestId("projects-folder-testid");
+    expect(projectsFolder).toBeVisible();
+  });
+
+  it("It closes the projects folder if the close button is clicked", async () => {
+    const { getByTestId, queryByTestId } = render(renderer(<Desktop/>));
+
+    const projectsIcon = getByTestId("projects-testid");
+    fireEvent.click(projectsIcon);
+
+    const closeButton = getByTestId("close-testid");
+    fireEvent.click(closeButton);
+
+    const projectsFolder = await queryByTestId("projects-folder-testid");
+    expect(projectsFolder).toBeNull();
+  });
+
+  it("Does not opens the experience folder if it is already open", async () => {
+    const { getByTestId, queryByTestId } = render(renderer(<Desktop/>));
+
+    const experienceIcon = getByTestId("experience-testid");
+    fireEvent.click(experienceIcon);
+    fireEvent.click(experienceIcon);
+
+    const experienceFolder = await queryByTestId("experience-folder-testid");
+    expect(experienceFolder).toBeVisible();
+  });
+
+  it("Opens the experience folder if the experience icon is clicked", async () => {
+    const { getByTestId, queryByTestId } = render(renderer(<Desktop/>));
+
+    const experienceIcon = getByTestId("experience-testid");
+    fireEvent.click(experienceIcon);
+
+    const experienceFolder = await queryByTestId("experience-folder-testid");
+    expect(experienceFolder).toBeVisible();
+  });
+
+  it("It closes the experience folder if the close button is clicked", async () => {
+    const { getByTestId, queryByTestId } = render(renderer(<Desktop/>));
+
+    const experienceIcon = getByTestId("experience-testid");
+    fireEvent.click(experienceIcon);
+
+    const closeButton = getByTestId("close-testid");
+    fireEvent.click(closeButton);
+
+    const experienceFolder = await queryByTestId("experience-folder-testid");
+    expect(experienceFolder).toBeNull();
   });
 });

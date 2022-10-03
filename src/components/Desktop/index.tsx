@@ -1,29 +1,64 @@
-import { MouseEventHandler } from "react";
+import { useState } from "react";
+import Draggable from "react-draggable";
 import { StyledDesktop, Icons, TaskBar, StartButton, StartIcon } from "./Desktop.styled";
 import startIcon from "../../images/start.png";
 import Icon from "../Icon";
+import Folder, { FolderProps } from "../Folder";
 
-interface DesktopProps {
-  onStart: MouseEventHandler<HTMLButtonElement>;
-  onProjects: MouseEventHandler<HTMLButtonElement>;
-  onExperience: MouseEventHandler<HTMLButtonElement>;
-  onSendEmail: MouseEventHandler<HTMLButtonElement>;
-  onTechnologies: MouseEventHandler<HTMLButtonElement>;
-  onContact: MouseEventHandler<HTMLButtonElement>;
-  onEducation: MouseEventHandler<HTMLButtonElement>;
-};
+const Desktop = () => {
+  const [folders, setFolders] = useState<FolderProps[]>([]);
 
-const Desktop = ({
-  onStart,
-  onProjects,
-  onExperience,
-  onSendEmail,
-  onTechnologies,
-  onContact,
-  onEducation
-}: DesktopProps) => {
+  const onFolderClose = (id: string) => {
+    const newFolders = folders.filter((folder) => folder.id !== id);
+    setFolders(newFolders);
+  };
+
+  const folderExist = (id: string) => {
+    return folders.find((folder) => folder.id === id);
+  }
+
+  const onProjects = () => {
+    if (!folderExist("projects")) {
+      const newFolders = [...folders, {
+        id: "projects",
+        icon: "projects_mini",
+        name: "Proyectos",
+        files: [],
+        onMinimize: () => {},
+        onMaximize: () => {},
+        onClose: () => onFolderClose("projects"),
+        testId: "projects-folder-testid"
+      }];
+
+      setFolders(newFolders);
+    }
+  };
+
+  const onExperience = () => {
+    if (!folderExist("experience")) {
+      const newFolders = [...folders, {
+        id: "experience",
+        icon: "experience_mini",
+        name: "Experiencia",
+        files: [],
+        onMinimize: () => {},
+        onMaximize: () => {},
+        onClose: () => onFolderClose("experience"),
+        testId: "experience-folder-testid"
+      }];
+
+      setFolders(newFolders);
+    }
+  };
+
+  const onTechnologies = () => {};
+  const onEducation = () => {};
+  const onContact = () => {};
+  const onSendEmail = () => {};
+  const onStart = () => {};
+
   return (
-    <StyledDesktop>
+    <StyledDesktop data-testid="desktop-testid">
       <Icons>
         <Icon
           title="Proyectos"
@@ -61,12 +96,40 @@ const Desktop = ({
         />
 
         <Icon
-          title="Enviar correo"
+          title="Enviar un correo"
           icon="send_email"
           onClick={onSendEmail}
           testId="send-email-testid"
         />
       </Icons>
+
+      <>
+        {!!folders.length && folders?.map((folder) => {
+          return (
+            <Draggable
+              key={folder.id}
+              axis="both"
+              handle=".handle"
+              defaultPosition={{x: 200, y: 300}}
+              grid={[25, 25]}
+              scale={1}
+            >
+              <div>
+                <Folder
+                  id={folder.id}
+                  icon={folder.icon}
+                  name={folder.name}
+                  files={folder.files}
+                  onMinimize={folder.onMinimize}
+                  onMaximize={folder.onMaximize}
+                  onClose={folder.onClose}
+                  testId={folder.testId}
+                />
+              </div>
+            </Draggable>
+          )
+        })}
+      </>
 
       <TaskBar>
         <StartButton onClick={onStart} data-testid="start-button-testid">

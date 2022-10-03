@@ -20,6 +20,7 @@ interface WindowProps {
   submitText: string;
   onCancel?: MouseEventHandler<HTMLButtonElement>;
   cancelText?: string;
+  inactive?: boolean;
 };
 
 const Window = ({
@@ -32,11 +33,12 @@ const Window = ({
   submitText,
   onCancel = () => {},
   cancelText = "",
+  inactive = false
 }: WindowProps) => {
   return (
     <Frame>
-      <Title>
-        <TitleText>{title}</TitleText>
+      <Title inactive={inactive}>
+        <TitleText className="titleText">{title}</TitleText>
         <TitleButtons>
           <IconButton context="minimize" onClick={onMinimize} testId="minimize-testid" />
           <IconButton context="maximize" onClick={onMaximize} testId="maximize-testid" />

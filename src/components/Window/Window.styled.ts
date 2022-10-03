@@ -9,16 +9,19 @@ const Frame = styled.div`
   padding: 4px;
 `;
 
-const Title = styled.div`
-  background: linear-gradient(270deg, ${props => props.theme.colors.windowTitle.blueLight} 0%, ${props => props.theme.colors.windowTitle.blueDark} 100%);
+const Title = styled("div")<{ inactive: boolean }>`
+  background: linear-gradient(270deg, ${props => props.inactive ? props.theme.colors.windowTitle.grayLight : props.theme.colors.windowTitle.blueLight} 0%, ${props => props.inactive ? props.theme.colors.windowTitle.grayDark : props.theme.colors.windowTitle.blueDark} 100%);
   height: 20px;
   padding: 4px;
   display: flex;
   justify-content: space-between;
+
+  .titleText {
+    color: ${props => props.inactive ? props.theme.colors.grayMain : props.theme.colors.white};
+  }
 `;
 
 const TitleText = styled.div`
-  color: ${props => props.theme.colors.white};
   font-family: ${props => props.theme.fontFamily};
   font-weight: 900;
 `;

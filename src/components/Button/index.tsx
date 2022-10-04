@@ -1,9 +1,8 @@
-import { MouseEventHandler } from "react";
 import StyledButton from "./Button.styled";
 
 interface ButtonProps {
   text: string;
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  onClick: () => void;
   testId: string;
   disabled?: boolean;
 };

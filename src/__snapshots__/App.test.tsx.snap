@@ -16,101 +16,116 @@ Object {
             class="sc-gswNZR iMExeb"
           >
             <button
-              class="sc-jSUZER bCwasD"
+              class="sc-dIfARi juyNWL"
               data-testid="projects-testid"
             >
               <img
                 alt="Proyectos"
-                class="sc-gKPRtg evrdIE"
+                class="sc-hHTYSt ilOIoP"
                 src="projects.png"
               />
               <div
-                class="sc-iBYQkv ckNfMy"
+                class="sc-dmctIk hWauCs"
               >
                 Proyectos
               </div>
             </button>
             <button
-              class="sc-jSUZER bCwasD"
+              class="sc-dIfARi juyNWL"
               data-testid="experience-testid"
             >
               <img
                 alt="Experiencia"
-                class="sc-gKPRtg evrdIE"
+                class="sc-hHTYSt ilOIoP"
                 src="experience.png"
               />
               <div
-                class="sc-iBYQkv ckNfMy"
+                class="sc-dmctIk hWauCs"
               >
                 Experiencia
               </div>
             </button>
             <button
-              class="sc-jSUZER bCwasD"
+              class="sc-dIfARi juyNWL"
               data-testid="technologies-testid"
             >
               <img
                 alt="Tecnologías"
-                class="sc-gKPRtg evrdIE"
+                class="sc-hHTYSt ilOIoP"
                 src="technologies.png"
               />
               <div
-                class="sc-iBYQkv ckNfMy"
+                class="sc-dmctIk hWauCs"
               >
                 Tecnologías
               </div>
             </button>
             <button
-              class="sc-jSUZER bCwasD"
+              class="sc-dIfARi juyNWL"
               data-testid="education-testid"
             >
               <img
                 alt="Educación"
-                class="sc-gKPRtg evrdIE"
+                class="sc-hHTYSt ilOIoP"
                 src="education.png"
               />
               <div
-                class="sc-iBYQkv ckNfMy"
+                class="sc-dmctIk hWauCs"
               >
                 Educación
               </div>
             </button>
             <button
-              class="sc-jSUZER bCwasD"
+              class="sc-dIfARi juyNWL"
               data-testid="contact-testid"
             >
               <img
                 alt="Contacto"
-                class="sc-gKPRtg evrdIE"
+                class="sc-hHTYSt ilOIoP"
                 src="contact.png"
               />
               <div
-                class="sc-iBYQkv ckNfMy"
+                class="sc-dmctIk hWauCs"
               >
                 Contacto
               </div>
             </button>
             <button
-              class="sc-jSUZER bCwasD"
+              class="sc-dIfARi juyNWL"
               data-testid="send-email-testid"
             >
               <img
                 alt="Enviar un correo"
-                class="sc-gKPRtg evrdIE"
+                class="sc-hHTYSt ilOIoP"
                 src="send_email.png"
               />
               <div
-                class="sc-iBYQkv ckNfMy"
+                class="sc-dmctIk hWauCs"
               >
                 Enviar un correo
               </div>
             </button>
+            <button
+              class="sc-dIfARi juyNWL"
+              data-testid="bin-testid"
+            >
+              <img
+                alt="Papelera"
+                class="sc-hHTYSt ilOIoP"
+                src="bin.png"
+              />
+              <div
+                class="sc-dmctIk hWauCs"
+              >
+                Papelera
+              </div>
+            </button>
           </div>
           <div
-            class="sc-dkrFOg jNIBkL"
+            class="sc-dkrFOg flVGBD"
           >
             <button
-              class="sc-hLBbgP cTXrTs"
+              class="sc-hLBbgP lovauW"
               data-testid="start-button-testid"
             >
               <img
@@ -120,6 +135,25 @@ Object {
               />
               Start
             </button>
+            <div
+              class="sc-jSUZER bOkUnu"
+            >
+              <img
+                alt="calendar_icon"
+                class="sc-gKPRtg kvlfLI"
+                src="calendar_mini.png"
+              />
+              <img
+                alt="speaker_icon"
+                class="sc-gKPRtg kvlfLI"
+                src="speaker_mini.png"
+              />
+              <div
+                data-testid="clock-testid"
+              >
+                21:31
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -137,101 +171,116 @@ Object {
           class="sc-gswNZR iMExeb"
         >
           <button
-            class="sc-jSUZER bCwasD"
+            class="sc-dIfARi juyNWL"
             data-testid="projects-testid"
           >
             <img
               alt="Proyectos"
-              class="sc-gKPRtg evrdIE"
+              class="sc-hHTYSt ilOIoP"
               src="projects.png"
             />
             <div
-              class="sc-iBYQkv ckNfMy"
+              class="sc-dmctIk hWauCs"
             >
               Proyectos
             </div>
           </button>
           <button
-            class="sc-jSUZER bCwasD"
+            class="sc-dIfARi juyNWL"
             data-testid="experience-testid"
           >
             <img
               alt="Experiencia"
-              class="sc-gKPRtg evrdIE"
+              class="sc-hHTYSt ilOIoP"
               src="experience.png"
             />
             <div
-              class="sc-iBYQkv ckNfMy"
+              class="sc-dmctIk hWauCs"
             >
               Experiencia
             </div>
           </button>
           <button
-            class="sc-jSUZER bCwasD"
+            class="sc-dIfARi juyNWL"
             data-testid="technologies-testid"
           >
             <img
               alt="Tecnologías"
-              class="sc-gKPRtg evrdIE"
+              class="sc-hHTYSt ilOIoP"
               src="technologies.png"
             />
             <div
-              class="sc-iBYQkv ckNfMy"
+              class="sc-dmctIk hWauCs"
             >
               Tecnologías
             </div>
           </button>
           <button
-            class="sc-jSUZER bCwasD"
+            class="sc-dIfARi juyNWL"
             data-testid="education-testid"
           >
             <img
               alt="Educación"
-              class="sc-gKPRtg evrdIE"
+              class="sc-hHTYSt ilOIoP"
               src="education.png"
             />
             <div
-              class="sc-iBYQkv ckNfMy"
+              class="sc-dmctIk hWauCs"
             >
               Educación
             </div>
           </button>
           <button
-            class="sc-jSUZER bCwasD"
+            class="sc-dIfARi juyNWL"
             data-testid="contact-testid"
           >
             <img
               alt="Contacto"
-              class="sc-gKPRtg evrdIE"
+              class="sc-hHTYSt ilOIoP"
               src="contact.png"
             />
             <div
-              class="sc-iBYQkv ckNfMy"
+              class="sc-dmctIk hWauCs"
             >
               Contacto
             </div>
           </button>
           <button
-            class="sc-jSUZER bCwasD"
+            class="sc-dIfARi juyNWL"
             data-testid="send-email-testid"
           >
             <img
               alt="Enviar un correo"
-              class="sc-gKPRtg evrdIE"
+              class="sc-hHTYSt ilOIoP"
               src="send_email.png"
             />
             <div
-              class="sc-iBYQkv ckNfMy"
+              class="sc-dmctIk hWauCs"
             >
               Enviar un correo
             </div>
           </button>
+          <button
+            class="sc-dIfARi juyNWL"
+            data-testid="bin-testid"
+          >
+            <img
+              alt="Papelera"
+              class="sc-hHTYSt ilOIoP"
+              src="bin.png"
+            />
+            <div
+              class="sc-dmctIk hWauCs"
+            >
+              Papelera
+            </div>
+          </button>
         </div>
         <div
-          class="sc-dkrFOg jNIBkL"
+          class="sc-dkrFOg flVGBD"
         >
           <button
-            class="sc-hLBbgP cTXrTs"
+            class="sc-hLBbgP lovauW"
             data-testid="start-button-testid"
           >
             <img
@@ -241,6 +290,25 @@ Object {
             />
             Start
           </button>
+          <div
+            class="sc-jSUZER bOkUnu"
+          >
+            <img
+              alt="calendar_icon"
+              class="sc-gKPRtg kvlfLI"
+              src="calendar_mini.png"
+            />
+            <img
+              alt="speaker_icon"
+              class="sc-gKPRtg kvlfLI"
+              src="speaker_mini.png"
+            />
+            <div
+              data-testid="clock-testid"
+            >
+              21:31
+            </div>
+          </div>
         </div>
       </div>
     </div>

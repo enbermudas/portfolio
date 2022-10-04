@@ -1,4 +1,3 @@
-import { MouseEventHandler } from "react";
 import StyledIconButton from "./IconButton.styled";
 import { ReactComponent as IconClose } from "../../icons/icon-close.svg";
 import { ReactComponent as IconHelp } from "../../icons/icon-help.svg";
@@ -9,7 +8,7 @@ type Context = "close"| "help" | "maximize" | "minimize";
 
 interface IconButtonProps {
   context: Context;
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  onClick: () => void;
   testId: string;
   disabled?: boolean;
 };

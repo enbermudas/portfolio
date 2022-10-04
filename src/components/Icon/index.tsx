@@ -1,10 +1,9 @@
-import { MouseEventHandler } from "react";
 import { StyledIcon, Image, Title } from "./Icon.styled";
 
 interface IconProps {
   title: string;
   icon: string;
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  onClick: () => void;
   testId: string;
   dark?: boolean;
 };

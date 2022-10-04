@@ -9,13 +9,13 @@ const Frame = styled.div`
   min-width: 432px;
   position: absolute;
   background: ${props => props.theme.colors.grayMain};
-  box-shadow: inset -1px -1px 0px ${props => props.theme.colors.black}, inset 1px 1px 0px ${props => props.theme.colors.grayTertiary}, inset -2px -2px 0px ${props => props.theme.colors.graySecondary}, inset 2px 2px 0px ${props => props.theme.colors.white};
+  box-shadow: ${props => `inset -1px -1px 0px ${props.theme.colors.black}, inset 1px 1px 0px ${props.theme.colors.grayTertiary}, inset -2px -2px 0px ${props.theme.colors.graySecondary}, inset 2px 2px 0px ${props.theme.colors.white}`};
   padding: 4px;
   max-height: 340px;
 `;
 
 const Title = styled("div")<{ inactive: boolean }>`
-  background: linear-gradient(270deg, ${props => props.inactive ? props.theme.colors.windowTitle.grayLight : props.theme.colors.windowTitle.blueLight} 0%, ${props => props.inactive ? props.theme.colors.windowTitle.grayDark : props.theme.colors.windowTitle.blueDark} 100%);
+  background: ${props => `linear-gradient(270deg, ${props.inactive ? props.theme.colors.windowTitle.grayLight : props.theme.colors.windowTitle.blueLight} 0%, ${props.inactive ? props.theme.colors.windowTitle.grayDark : props.theme.colors.windowTitle.blueDark} 100%);`}
   height: 20px;
   padding: 4px;
   display: flex;
@@ -55,7 +55,7 @@ const Menu = styled.div`
   padding: 4px;
   display: flex;
   gap: 8px;
-  box-shadow: 1px 1px 0 ${props => props.theme.colors.white} inset, -1px -1px 0 ${props => props.theme.colors.graySecondary} inset;
+  box-shadow: ${props => `1px 1px 0 ${props.theme.colors.white} inset, -1px -1px 0 ${props.theme.colors.graySecondary} inset`};
 `;
 
 const MenuItem = styled.div`
@@ -79,7 +79,7 @@ const Address = styled.div`
   padding: 4px;
   display: flex;
   gap: 8px;
-  box-shadow: 1px 1px 0 ${props => props.theme.colors.white} inset, -1px -1px 0 ${props => props.theme.colors.graySecondary} inset;
+  box-shadow: ${props => `1px 1px 0 ${props.theme.colors.white} inset, -1px -1px 0 ${props.theme.colors.graySecondary} inset;`}
   font-family: ${props => props.theme.fontFamily};
 `;
 
@@ -119,7 +119,7 @@ const HandleDrag = styled.div`
     bottom: 1px;
     box-sizing: border-box;
     border: 1px solid;
-    border-color: ${props => props.theme.colors.white} ${props => props.theme.colors.graySecondary} ${props => props.theme.colors.graySecondary} ${props => props.theme.colors.white};
+    border-color: ${props => `${props.theme.colors.white} ${props.theme.colors.graySecondary} ${props.theme.colors.graySecondary} ${props.theme.colors.white}`};
   }
 `;
 

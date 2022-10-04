@@ -29,6 +29,8 @@ const TaskBar = styled.div`
   align-self: flex-end;
   box-shadow: inset 1px 0 ${props => props.theme.colors.white};
   border-top: 1px solid ${props => props.theme.colors.white};
+  display: flex;
+  justify-content: space-between;
 `;
 
 const StartButton = styled.button`
@@ -39,7 +41,7 @@ const StartButton = styled.button`
   font-size: 18px;
   font-family: ${props => props.theme.fontFamily};
   border: none;
-  box-shadow: inset -1px -1px 0px ${props => props.theme.colors.black}, inset 1px 1px 0px ${props => props.theme.colors.grayTertiary}, inset -2px -2px 0px ${props => props.theme.colors.graySecondary}, inset 2px 2px 0px ${props => props.theme.colors.white};
+  box-shadow: ${props => `inset -1px -1px 0px ${props.theme.colors.black}, inset 1px 1px 0px ${props.theme.colors.grayTertiary}, inset -2px -2px 0px ${props.theme.colors.graySecondary}, inset 2px 2px 0px ${props.theme.colors.white}`};
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -69,10 +71,28 @@ const StartIcon = styled.img`
   height: 16px;
 `;
 
+const TaskBarTime = styled.div`
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-family: ${props => props.theme.fontFamily};
+  border-style: solid;
+  border-width: 1px;
+  border-color: ${props => `${props.theme.colors.graySecondary} ${props.theme.colors.white} ${props.theme.colors.white} ${props.theme.colors.graySecondary}`};
+`;
+
+const TaskBarTimeIcon = styled.img`
+  width: 16px;
+  height: 16px;
+`;
+
 export {
   StyledDesktop,
   Icons,
   TaskBar,
   StartButton,
-  StartIcon
+  StartIcon,
+  TaskBarTime,
+  TaskBarTimeIcon
 };

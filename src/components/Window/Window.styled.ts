@@ -5,12 +5,12 @@ const Frame = styled.div`
   max-width: 400px;
   position: relative;
   background: ${props => props.theme.colors.grayMain};
-  box-shadow: inset -1px -1px 0px ${props => props.theme.colors.black}, inset 1px 1px 0px ${props => props.theme.colors.grayTertiary}, inset -2px -2px 0px ${props => props.theme.colors.graySecondary}, inset 2px 2px 0px ${props => props.theme.colors.white};
+  box-shadow: ${props => `inset -1px -1px 0px ${props.theme.colors.black}, inset 1px 1px 0px ${props.theme.colors.grayTertiary}, inset -2px -2px 0px ${props.theme.colors.graySecondary}, inset 2px 2px 0px ${props.theme.colors.white}`};
   padding: 4px;
 `;
 
 const Title = styled("div")<{ inactive: boolean }>`
-  background: linear-gradient(270deg, ${props => props.inactive ? props.theme.colors.windowTitle.grayLight : props.theme.colors.windowTitle.blueLight} 0%, ${props => props.inactive ? props.theme.colors.windowTitle.grayDark : props.theme.colors.windowTitle.blueDark} 100%);
+  background: ${props => `linear-gradient(270deg, ${props.inactive ? props.theme.colors.windowTitle.grayLight : props.theme.colors.windowTitle.blueLight} 0%, ${props.inactive ? props.theme.colors.windowTitle.grayDark : props.theme.colors.windowTitle.blueDark} 100%);`}
   height: 20px;
   padding: 4px;
   display: flex;

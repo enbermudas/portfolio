@@ -1,8 +1,18 @@
 import { useState } from "react";
-import { StyledDesktop, Icons, TaskBar, StartButton, StartIcon } from "./Desktop.styled";
+import {
+  StyledDesktop,
+  TaskBar,
+  StartButton,
+  StartIcon,
+  TaskBarTime,
+  TaskBarTimeIcon
+} from "./Desktop.styled";
 import startIcon from "../../images/start.png";
-import Icon from "../Icon";
+import calendarIcon from "../../images/calendar_mini.png";
+import speakerIcon from "../../images/speaker_mini.png";
 import Folder, { FolderProps, FileType } from "../Folder";
+import Clock from "./Clock";
+import IconsGrid from "./IconsGrid";
 
 const top = () => Math.random() * 200 + 200;
 const left = () => Math.random() * 600 + 200;
@@ -34,9 +44,9 @@ const Desktop = () => {
             onClick: () => window.open("https://enbermudez.github.io/types-doodler/", '_blank', 'noopener,noreferrer')
           }
         ],
-        onMinimize: () => {},
-        onMaximize: () => {},
-        onClose: () => {},
+        onMinimize: () => { },
+        onMaximize: () => { },
+        onClose: () => { },
         testId: "projects-folder-testid",
         top: top(),
         left: left(),
@@ -59,12 +69,12 @@ const Desktop = () => {
             name: "MercadoLibre",
             type: "text" as FileType,
             content: "Acá iría la descripción del trabajo.",
-            onClick: () => {}
+            onClick: () => { }
           }
         ],
-        onMinimize: () => {},
-        onMaximize: () => {},
-        onClose: () => {},
+        onMinimize: () => { },
+        onMaximize: () => { },
+        onClose: () => { },
         testId: "experience-folder-testid",
         top: top(),
         left: left(),
@@ -74,65 +84,24 @@ const Desktop = () => {
     }
   };
 
-  const onTechnologies = () => {};
-  const onEducation = () => {};
-  const onContact = () => {};
-  const onSendEmail = () => {};
-  const onStart = () => {};
-  const onBin = () => {};
+  const onTechnologies = () => { };
+  const onEducation = () => { };
+  const onContact = () => { };
+  const onSendEmail = () => { };
+  const onStart = () => { };
+  const onBin = () => { };
 
   return (
     <StyledDesktop data-testid="desktop-testid">
-      <Icons>
-        <Icon
-          title="Proyectos"
-          icon="projects"
-          onClick={onProjects}
-          testId="projects-testid"
-        />
-
-        <Icon
-          title="Experiencia"
-          icon="experience"
-          onClick={onExperience}
-          testId="experience-testid"
-        />
-
-        <Icon
-          title="Tecnologías"
-          icon="technologies"
-          onClick={onTechnologies}
-          testId="technologies-testid"
-        />
-
-        <Icon
-          title="Educación"
-          icon="education"
-          onClick={onEducation}
-          testId="education-testid"
-        />
-
-        <Icon
-          title="Contacto"
-          icon="contact"
-          onClick={onContact}
-          testId="contact-testid"
-        />
-
-        <Icon
-          title="Enviar un correo"
-          icon="send_email"
-          onClick={onSendEmail}
-          testId="send-email-testid"
-        />
-
-        <Icon
-          title="Papelera"
-          icon="bin"
-          onClick={onBin}
-          testId="bin-testid"
-        />
-      </Icons>
+      <IconsGrid
+        onProjects={onProjects}
+        onExperience={onExperience}
+        onTechnologies={onTechnologies}
+        onEducation={onEducation}
+        onContact={onContact}
+        onSendEmail={onSendEmail}
+        onBin={onBin}
+      />
 
       <>
         {!!folders.length && folders?.map((folder) => {
@@ -159,6 +128,12 @@ const Desktop = () => {
           <StartIcon src={startIcon} alt="start-icon" />
           Start
         </StartButton>
+
+        <TaskBarTime>
+          <TaskBarTimeIcon src={calendarIcon} alt="calendar_icon" />
+          <TaskBarTimeIcon src={speakerIcon} alt="speaker_icon" />
+          <Clock/>
+        </TaskBarTime>
       </TaskBar>
     </StyledDesktop>
   )

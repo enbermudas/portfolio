@@ -1,4 +1,3 @@
-import { MouseEventHandler } from "react";
 import {
   Frame,
   Title,
@@ -13,12 +12,12 @@ import Button from "../Button";
 interface WindowProps {
   title: string;
   content: string;
-  onMinimize: MouseEventHandler<HTMLButtonElement>;
-  onMaximize: MouseEventHandler<HTMLButtonElement>;
-  onClose: MouseEventHandler<HTMLButtonElement>;
-  onSubmit: MouseEventHandler<HTMLButtonElement>;
+  onMinimize: () => void;
+  onMaximize: () => void;
+  onClose: () => void;
+  onSubmit: () => void;
   submitText: string;
-  onCancel?: MouseEventHandler<HTMLButtonElement>;
+  onCancel?: () => void;
   cancelText?: string;
   inactive?: boolean;
 };

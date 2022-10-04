@@ -8,7 +8,7 @@ const StyledButton = styled.button`
   font-size: 18px;
   font-family: ${props => props.theme.fontFamily};
   border: none;
-  box-shadow: inset -1px -1px 0px ${props => props.theme.colors.black}, inset 1px 1px 0px ${props => props.theme.colors.grayTertiary}, inset -2px -2px 0px ${props => props.theme.colors.graySecondary}, inset 2px 2px 0px ${props => props.theme.colors.white};
+  box-shadow: ${props => `inset -1px -1px 0px ${props.theme.colors.black}, inset 1px 1px 0px ${props.theme.colors.grayTertiary}, inset -2px -2px 0px ${props.theme.colors.graySecondary}, inset 2px 2px 0px ${props.theme.colors.white}`};
 
   &:focus {
     outline: 1px dashed ${props => props.theme.colors.black};

@@ -43,7 +43,7 @@ export interface File {
   name: string;
   type: FileType;
   content?: string;
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  onClick: () => void;
 };
 
 export interface FolderProps {
@@ -51,9 +51,9 @@ export interface FolderProps {
   icon: string;
   name: string;
   files: File[];
-  onMinimize: MouseEventHandler<HTMLButtonElement>;
-  onMaximize: MouseEventHandler<HTMLButtonElement>;
-  onClose: MouseEventHandler<HTMLButtonElement>;
+  onMinimize: () => void;
+  onMaximize: () => void;
+  onClose: () => void;
   testId: string;
   top: number;
   left: number;

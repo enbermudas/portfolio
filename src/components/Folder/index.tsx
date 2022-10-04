@@ -80,6 +80,7 @@ const Folder = ({
   setInactive,
 }: FolderProps) => {
   const ref = useRef(null);
+
   const activateWindow = () => {
     setInactive(id, false);
     onSelect();

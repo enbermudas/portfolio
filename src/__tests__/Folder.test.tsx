@@ -1,6 +1,6 @@
 import { render, fireEvent } from "@testing-library/react";
-import Folder from ".";
-import renderer from "../../test-renderer";
+import Folder from "../components/Folder";
+import renderer from "../test-renderer";
 
 const onClick1 = jest.fn();
 const onClick2 = jest.fn();

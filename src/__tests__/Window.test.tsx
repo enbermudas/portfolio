@@ -1,6 +1,6 @@
 import { render, fireEvent } from "@testing-library/react";
-import Window from ".";
-import renderer from "../../test-renderer";
+import Window from "../components/Window";
+import renderer from "../test-renderer";
 
 const onMinimize = jest.fn();
 const onMaximize = jest.fn();

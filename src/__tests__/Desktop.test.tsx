@@ -1,6 +1,6 @@
 import { render, fireEvent } from "@testing-library/react";
-import Desktop from ".";
-import renderer from "../../test-renderer";
+import Desktop from "../components/Desktop";
+import renderer from "../test-renderer";
 
 global.open = jest.fn();
 

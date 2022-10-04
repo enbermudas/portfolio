@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
-import App from "./App";
-import renderer from "./test-renderer";
+import App from "../App";
+import renderer from "../test-renderer";
 
 describe("App", () => {
   it("Renders correctly", () => {

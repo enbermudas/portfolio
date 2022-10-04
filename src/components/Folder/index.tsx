@@ -1,4 +1,4 @@
-import React, { MutableRefObject, useRef, useState } from "react";
+import { useRef } from "react";
 import Draggable from "react-draggable";
 import { useClickAway } from "react-use";
 import {
@@ -16,26 +16,15 @@ import {
   AddressIcon,
   HandleDrag,
   Content,
+  ContentTextarea
 } from "./Folder.styled";
+import { useClickInside } from "../../helpers";
 import IconButton from "../IconButton";
 import Icon from "../Icon";
 
-const useClickInside = (ref: MutableRefObject<any>, callback: Function) => {
-  const handleClick = (e: any) => {
-    if (ref.current && ref.current.contains(e.target)) {
-      callback();
-    }
-  };
-
-  React.useEffect(() => {
-    document.addEventListener('click', handleClick);
-    return () => {
-      document.removeEventListener('click', handleClick);
-    };
-  });
-};
-
 export type FileType = "link" | "text";
+
+export type FolderType = "folder" | "notepad";
 
 export interface File {
   id: string;
@@ -50,7 +39,6 @@ export interface FolderProps {
   id: string;
   icon: string;
   name: string;
-  files: File[];
   onMinimize: () => void;
   onMaximize: () => void;
   onClose: () => void;
@@ -61,13 +49,15 @@ export interface FolderProps {
   visible: boolean;
   inactive: boolean;
   setInactive: (id: string, type: boolean) => void;
+  type: FolderType;
+  files?: Array<any>;
+  content?: string;
 };
 
 const Folder = ({
   id,
   icon,
   name,
-  files,
   onMinimize,
   onMaximize,
   onClose,
@@ -78,6 +68,9 @@ const Folder = ({
   visible,
   inactive,
   setInactive,
+  type,
+  files = [],
+  content = ""
 }: FolderProps) => {
   const ref = useRef(null);
 
@@ -93,6 +86,34 @@ const Folder = ({
   useClickInside(ref, () => {
     if (inactive) activateWindow();
   });
+
+  const renderContent = () => {
+    switch (type as FolderType) {
+      case "folder":
+        return (
+          <Content>
+            {!!files.length && files.map((file) => {
+              return (
+                <Icon
+                  key={file.id}
+                  title={file.name}
+                  icon={file.icon}
+                  onClick={file.onClick}
+                  testId={`${file.id}-testid`}
+                  dark
+                />
+              )
+            })}
+          </Content>
+        );
+      case "notepad":
+        return (
+          <ContentTextarea value={content} onChange={() => { }} />
+        );
+      default:
+        break;
+    }
+  };
 
   return (
     <Wrapper inactive={inactive} visible={visible}>
@@ -135,20 +156,7 @@ const Folder = ({
               </AddressInput>
             </Address>
 
-            <Content>
-              {files.map((file) => {
-                return (
-                  <Icon
-                    key={file.id}
-                    title={file.name}
-                    icon={file.icon}
-                    onClick={file.onClick}
-                    testId={`${file.id}-testid`}
-                    dark
-                  />
-                )
-              })}
-            </Content>
+            {renderContent()}
           </Frame>
         </div>
       </Draggable>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { StyledDesktop } from "./Desktop.styled";
-import Folder, { FolderProps, FileType } from "../Folder";
+import Folder, { FolderProps, FileType, FolderType } from "../Folder";
 import IconsGrid from "./IconsGrid";
 import TaskBar from "./TaskBar";
 
@@ -15,6 +15,133 @@ export interface Windows {
 const Desktop = () => {
   const [folders, setFolders] = useState<FolderProps[]>([]);
   const [windows, setWindows] = useState<Windows>({});
+
+  const filesThatAreFolders = {
+    kenility: {
+      id: "kenility",
+      icon: "notepad",
+      name: "Kenility",
+      onMinimize: () => onMinimizeFolder("kenility"),
+      onMaximize: () => { },
+      onClose: () => onFolderClose("kenility"),
+      onSelect: () => onFolderSelect("kenility"),
+      testId: "kenility-folder-testid",
+      top: top(),
+      left: left(),
+      visible: true,
+      inactive: false,
+      setInactive: () => { },
+      type: "notepad" as FolderType,
+      content: `Roles: Ssr Frontend Developer
+
+        Main Stack: Javascript (React/Next.js)
+
+        • Development and maintenance of modules in the company's internal applications.
+        • Code refactoring.
+        • Technical debt resolution.
+        • Unit and e2e testing.`,
+      onClick: () => { }
+    },
+    mercadolibre: {
+      id: "mercadolibre",
+      icon: "notepad",
+      name: "MercadoLibre",
+      onMinimize: () => onMinimizeFolder("mercadolibre"),
+      onMaximize: () => { },
+      onClose: () => onFolderClose("mercadolibre"),
+      onSelect: () => onFolderSelect("mercadolibre"),
+      testId: "mercadolibre-folder-testid",
+      top: top(),
+      left: left(),
+      visible: true,
+      inactive: false,
+      setInactive: () => { },
+      type: "notepad" as FolderType,
+      content: `Roles: Ssr Frontend Developer
+
+        Main Stack: Javascript (React) — Node (Express)
+
+        • Development and maintenance of modules in the company's internal applications.
+        • Package monitoring
+        • Reports: collects, metrics, route planning and arrivals.
+        • Vehicle and driver management.
+        • Batch data loading.
+        • Code refactoring.
+        • Technical debt resolution.
+        • Unit and e2e testing.`,
+      onClick: () => { }
+    },
+    "4r-soluciones": {
+      id: "4r-soluciones",
+      icon: "notepad",
+      name: "4rSoluciones",
+      onMinimize: () => onMinimizeFolder("4r-soluciones"),
+      onMaximize: () => { },
+      onClose: () => onFolderClose("4r-soluciones"),
+      onSelect: () => onFolderSelect("4r-soluciones"),
+      testId: "4r-soluciones-folder-testid",
+      top: top(),
+      left: left(),
+      visible: true,
+      inactive: false,
+      setInactive: () => { },
+      type: "notepad" as FolderType,
+      content: `Roles: Backend Developer / Full Stack Developer
+
+        Main Stack: Node.js (Express) — Javascript (Vue.js, React) — SQL (MySQL)
+
+        • Development of an applications for enterprise customers.
+        • Head less CMS integrations.
+        • Development of web crawlers (using Python) .
+        • Development of administrative dashboards.
+        • Software maintenance.`,
+      onClick: () => { }
+    },
+    "innova-4j": {
+      id: "innova-4j",
+      icon: "notepad",
+      name: "Innova4J",
+      onMinimize: () => onMinimizeFolder("innova_4j"),
+      onMaximize: () => { },
+      onClose: () => onFolderClose("innova-4j"),
+      onSelect: () => onFolderSelect("innova-4j"),
+      testId: "innova-4j-folder-testid",
+      top: top(),
+      left: left(),
+      visible: true,
+      inactive: false,
+      setInactive: () => { },
+      type: "notepad" as FolderType,
+      content: `Roles Javascript full-stack web developer.
+
+      • Web application development and maintenance
+      • Corporate site development
+      • Third-party APIs and CMS integration`,
+      onClick: () => { }
+    },
+    "pro-acce": {
+      id: "pro-acce",
+      icon: "notepad",
+      name: "Pro-Acce",
+      onMinimize: () => onMinimizeFolder("pro-acce"),
+      onMaximize: () => { },
+      onClose: () => onFolderClose("pro-acce"),
+      onSelect: () => onFolderSelect("pro-acce"),
+      testId: "pro-acce-folder-testid",
+      top: top(),
+      left: left(),
+      visible: true,
+      inactive: false,
+      setInactive: () => { },
+      type: "notepad" as FolderType,
+      content: `Roles Javascript full-stack web developer.
+
+      • Web application development and maintenance
+      • Corporate site development
+      • Third-party APIs and CMS integration`,
+      onClick: () => { }
+    }
+  };
 
   /**
    * Updates the folders state.
@@ -42,10 +169,10 @@ const Desktop = () => {
   const updateWindows = (id: string) => {
     const windowsToDisable = Object.keys(windows).filter((key) => key !== id);
 
-    const newWindows = {...windows};
+    const newWindows = { ...windows };
     windowsToDisable.forEach((key) => newWindows[key as keyof Windows] = false);
 
-    setWindows({...newWindows, [id]: true });
+    setWindows({ ...newWindows, [id]: true });
   };
 
   /**
@@ -56,7 +183,7 @@ const Desktop = () => {
     const windowKey = Object.keys(windows).find((key) => key === id);
 
     if (windowKey) {
-      const newWindows = {...windows, [windowKey]: false };
+      const newWindows = { ...windows, [windowKey]: false };
       setWindows(newWindows);
     }
 
@@ -85,7 +212,7 @@ const Desktop = () => {
     const windowKey = Object.keys(windows).find((key) => key === id);
 
     if (windowKey) {
-      const newWindows = {...windows, [windowKey]: true };
+      const newWindows = { ...windows, [windowKey]: true };
 
       const windowsToDisable = Object.keys(windows).filter((key) => key !== id);
       windowsToDisable.forEach((key) => newWindows[key as keyof Windows] = false);
@@ -112,10 +239,10 @@ const Desktop = () => {
   const onFolderSelect = (id: string) => {
     const windowsToDisable = Object.keys(windows).filter((key) => key !== id);
 
-    const newWindows = {...windows};
+    const newWindows = { ...windows };
     windowsToDisable.forEach((key) => newWindows[key as keyof Windows] = false);
 
-    setWindows({...newWindows, [id]: true });
+    setWindows({ ...newWindows, [id]: true });
 
     setNewFolders(id, true, false);
   }
@@ -156,7 +283,8 @@ const Desktop = () => {
         left: left(),
         visible: true,
         inactive: false,
-        setInactive: () => { }
+        setInactive: () => { },
+        type: "folder" as FolderType
       }];
 
       setFolders(newFolders);
@@ -174,14 +302,7 @@ const Desktop = () => {
         icon: "experience_mini",
         name: "Experiencia",
         files: [
-          {
-            id: "mercadolibre",
-            icon: "notepad",
-            name: "MercadoLibre",
-            type: "text" as FileType,
-            content: "Acá iría la descripción del trabajo.",
-            onClick: () => { }
-          }
+          ...Object.values(filesThatAreFolders)
         ],
         onMinimize: () => { },
         onMaximize: () => { },
@@ -192,13 +313,26 @@ const Desktop = () => {
         left: left(),
         visible: true,
         inactive: false,
-        setInactive: () => { }
+        setInactive: () => { },
+        type: "folder" as FolderType
       }];
 
       setFolders(newFolders);
       updateWindows("experience");
     }
   };
+
+  /**
+   * Handles the opening of a file while acting as a folder.
+   * @param {string} id - Id of the file.
+   */
+  const onFileIsFolder = (id: string) => {
+    if (!folderExist(id)) {
+      const newFolders = [...folders, filesThatAreFolders[id as keyof typeof filesThatAreFolders]];
+      setFolders(newFolders);
+      updateWindows(id);
+    }
+  }
 
   const onTechnologies = () => { };
   const onEducation = () => { };
@@ -227,7 +361,10 @@ const Desktop = () => {
               id={folder.id}
               icon={folder.icon}
               name={folder.name}
-              files={folder.files}
+              files={folder.files?.map((file) => {
+                if (file.type !== "link") file.onClick = () => onFileIsFolder(file.id);
+                return file;
+              })}
               onMinimize={() => onMinimizeFolder(folder.id)}
               onMaximize={() => { }}
               onClose={() => onFolderClose(folder.id)}
@@ -239,6 +376,8 @@ const Desktop = () => {
               visible={folder.visible}
               inactive={folder.inactive}
               setInactive={onSetInactive}
+              type={folder.type}
+              content={folder.content}
             />
           )
         })}

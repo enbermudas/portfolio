@@ -12,7 +12,6 @@ const Frame = styled.div`
   background: ${props => props.theme.colors.grayMain};
   box-shadow: ${props => `inset -1px -1px 0px ${props.theme.colors.black}, inset 1px 1px 0px ${props.theme.colors.grayTertiary}, inset -2px -2px 0px ${props.theme.colors.graySecondary}, inset 2px 2px 0px ${props.theme.colors.white}`};
   padding: 4px;
-  max-height: 340px;
 `;
 
 const Title = styled("div")<{ inactive: boolean }>`
@@ -137,6 +136,28 @@ const Content = styled.div`
   border-style: solid;
   border-width: 2px 2px;
   margin-top: 4px;
+  max-height: 500px;
+`;
+
+const ContentTextarea = styled.textarea`
+  font-family: ${props => props.theme.fontFamily};
+  background: ${props => props.theme.colors.white};
+  padding: 10px;
+  resize: none;
+  border-image: url("data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h224v32h-192v192h-32v-224z%22%20fill%3D%22rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M224%200h32v256h-256v-32h224v-224z%22%20fill%3D%22rgb(234%2C%20230%2C%20221)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h160v32h-128v128h-32v-160z%22%20fill%3D%22rgb(162%2C%20141%2C%20104)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M192%2032h32v192h-192v-32h160v-160z%22%20fill%3D%22rgb(213%2C%20204%2C%20187)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h128v128h-128v-128z%22%20fill%3D%22rgb(213%2C%20204%2C%20187)%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E") 64 / 2px;
+  border-color: ${props => props.theme.colors.borderShadow};
+  border-style: solid;
+  border-width: 2px 2px;
+  width: 100%;
+  box-sizing: border-box;
+  height: 300px;
+  overflow-y: auto;
+  font-size: 18px;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
 `;
 
 export {
@@ -153,5 +174,6 @@ export {
   AddressInput,
   AddressIcon,
   HandleDrag,
-  Content
+  Content,
+  ContentTextarea
 };

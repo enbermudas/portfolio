@@ -38,6 +38,7 @@ describe("Components/Folder", () => {
       visible={true}
       inactive={false}
       setInactive={() => {}}
+      type="folder"
     />));
 
     fireEvent.click(getByTestId("test1-testid"));
@@ -71,6 +72,7 @@ describe("Components/Folder", () => {
       visible={true}
       inactive={false}
       setInactive={() => {}}
+      type="folder"
     />));
 
     const folderTitle = getByTestId("projects-folder-title-testid");
@@ -103,6 +105,7 @@ describe("Components/Folder", () => {
       visible={true}
       inactive={false}
       setInactive={() => {}}
+      type="folder"
     />));
 
     fireEvent.click(document);

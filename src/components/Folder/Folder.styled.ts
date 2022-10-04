@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
-const Wrapper = styled("div")<{ inactive: boolean }>`
+const Wrapper = styled("div")<{ inactive: boolean, visible: boolean }>`
   z-index: ${props => props.inactive ? 500 : 1000 };
+  visibility: ${props => props.visible ? 'visible' : 'hidden'};
 `;
 
 const Frame = styled.div`

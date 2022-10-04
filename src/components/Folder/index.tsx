@@ -1,4 +1,4 @@
-import React, { MouseEventHandler, MutableRefObject, useRef, useState } from "react";
+import React, { MutableRefObject, useRef, useState } from "react";
 import Draggable from "react-draggable";
 import { useClickAway } from "react-use";
 import {
@@ -54,9 +54,13 @@ export interface FolderProps {
   onMinimize: () => void;
   onMaximize: () => void;
   onClose: () => void;
+  onSelect: () => void;
   testId: string;
   top: number;
   left: number;
+  visible: boolean;
+  inactive: boolean;
+  setInactive: (id: string, type: boolean) => void;
 };
 
 const Folder = ({
@@ -67,21 +71,30 @@ const Folder = ({
   onMinimize,
   onMaximize,
   onClose,
+  onSelect,
   testId,
   top,
-  left
+  left,
+  visible,
+  inactive,
+  setInactive,
 }: FolderProps) => {
   const ref = useRef(null);
-  const [inactive, setInactive] = useState<boolean>(false);
+  const activateWindow = () => {
+    setInactive(id, false);
+    onSelect();
+  };
 
-  const activateWindow = () => setInactive(false);
+  useClickAway(ref, () => {
+    if (!inactive) setInactive(id, true);
+  });
 
-  useClickAway(ref, () => setInactive(true));
-
-  useClickInside(ref, activateWindow);
+  useClickInside(ref, () => {
+    if (inactive) activateWindow();
+  });
 
   return (
-    <Wrapper inactive={inactive}>
+    <Wrapper inactive={inactive} visible={visible}>
       <Draggable
         key={id}
         axis="both"

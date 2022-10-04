@@ -31,9 +31,13 @@ describe("Components/Folder", () => {
       onMinimize={() => {}}
       onMaximize={() => {}}
       onClose={() => {}}
+      onSelect={() => {}}
       testId="projects"
       top={0}
       left={0}
+      visible={true}
+      inactive={false}
+      setInactive={() => {}}
     />));
 
     fireEvent.click(getByTestId("test1-testid"));
@@ -60,9 +64,13 @@ describe("Components/Folder", () => {
       onMinimize={() => {}}
       onMaximize={() => {}}
       onClose={() => {}}
+      onSelect={() => {}}
       testId="projects"
       top={0}
       left={0}
+      visible={true}
+      inactive={false}
+      setInactive={() => {}}
     />));
 
     const folderTitle = getByTestId("folder-title-testid");
@@ -88,9 +96,13 @@ describe("Components/Folder", () => {
       onMinimize={() => {}}
       onMaximize={() => {}}
       onClose={() => {}}
+      onSelect={() => {}}
       testId="projects"
       top={0}
       left={0}
+      visible={true}
+      inactive={false}
+      setInactive={() => {}}
     />));
 
     fireEvent.click(document);

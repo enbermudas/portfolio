@@ -106,7 +106,7 @@ const Folder = ({
       >
         <div>
           <Frame ref={ref} id={id} data-testid={testId}>
-            <Title inactive={inactive} className="handle" data-testid="folder-title-testid">
+            <Title inactive={inactive} className="handle" data-testid={`${id}-folder-title-testid`}>
               <TitleLeft>
                 <TitleIcon src={require(`../../images/${icon}.png`)} alt={name} />
                 <TitleText className="titleText">{name}</TitleText>

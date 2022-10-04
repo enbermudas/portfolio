@@ -1,28 +1,13 @@
 import { useState } from "react";
-import {
-  StyledDesktop,
-  TaskBar,
-  TaskDivider,
-  TaskBarLeft,
-  StartButton,
-  StartIcon,
-  TaskBarWindows,
-  TaskBarWindow,
-  TaskBarWindowIcon,
-  TaskBarTime,
-  TaskBarTimeIcon
-} from "./Desktop.styled";
-import startIcon from "../../images/start.png";
-import calendarIcon from "../../images/calendar_mini.png";
-import speakerIcon from "../../images/speaker_mini.png";
+import { StyledDesktop } from "./Desktop.styled";
 import Folder, { FolderProps, FileType } from "../Folder";
-import Clock from "./Clock";
 import IconsGrid from "./IconsGrid";
+import TaskBar from "./TaskBar";
 
 const top = () => Math.random() * 200 + 200;
 const left = () => Math.random() * 600 + 200;
 
-interface Windows {
+export interface Windows {
   projects?: boolean;
   experience?: boolean;
 };
@@ -31,6 +16,29 @@ const Desktop = () => {
   const [folders, setFolders] = useState<FolderProps[]>([]);
   const [windows, setWindows] = useState<Windows>({});
 
+  /**
+   * Updates the folders state.
+   * @param {string} id - Id of the folder.
+   * @param {boolean} visible - New visible value
+   * @param {boolean} inactive - New inactive status
+   */
+  const setNewFolders = (id: string, visible: boolean, inactive: boolean) => {
+    const newFolders = folders.map((folder) => {
+      if (folder.id === id) {
+        folder.visible = visible;
+        folder.inactive = inactive;
+      }
+
+      return folder;
+    });
+
+    setFolders(newFolders);
+  };
+
+  /**
+   * Updates taskbar's windows state.
+   * @param {string} id - Id of the window.
+   */
   const updateWindows = (id: string) => {
     const windowsToDisable = Object.keys(windows).filter((key) => key !== id);
 
@@ -40,6 +48,10 @@ const Desktop = () => {
     setWindows({...newWindows, [id]: true });
   };
 
+  /**
+   * Handles folder minimize.
+   * @param {string} id - Id of the folder.
+   */
   const onMinimizeFolder = (id: string) => {
     const windowKey = Object.keys(windows).find((key) => key === id);
 
@@ -48,18 +60,14 @@ const Desktop = () => {
       setWindows(newWindows);
     }
 
-    const newFolders = folders.map((folder) => {
-      if (folder.id === id) {
-        folder.visible = false;
-        folder.inactive = false;
-      }
-
-      return folder;
-    });
-
-    setFolders(newFolders);
+    setNewFolders(id, false, false);
   };
 
+  /**
+   * Updates a folder inactive value.
+   * @param {string} id - Id of the folder.
+   * @param {boolean} type - New value for the folder's inactive field.
+   */
   const onSetInactive = (id: string, type: boolean) => {
     const newFolders = folders.map((folder) => {
       if (folder.id === id) folder.inactive = type;
@@ -69,6 +77,10 @@ const Desktop = () => {
     setFolders(newFolders);
   };
 
+  /**
+   * Shows a folder (un-minimize).
+   * @param {string} id - Id of the folder.
+   */
   const onFolderShow = (id: string) => {
     const windowKey = Object.keys(windows).find((key) => key === id);
 
@@ -81,23 +93,22 @@ const Desktop = () => {
       setWindows(newWindows);
     }
 
-    const newFolders = folders.map((folder) => {
-      if (folder.id === id) {
-        folder.visible = true;
-        folder.inactive = false;
-      }
-
-      return folder;
-    });
-
-    setFolders(newFolders);
+    setNewFolders(id, true, false);
   };
 
+  /**
+   * Closes a folder.
+   * @param {string} id - Id of the folder.
+   */
   const onFolderClose = (id: string) => {
     const newFolders = folders.filter((folder) => folder.id !== id);
     setFolders(newFolders);
   };
 
+  /**
+   * Selects a folder.
+   * @param {string} id - Id of the folder.
+   */
   const onFolderSelect = (id: string) => {
     const windowsToDisable = Object.keys(windows).filter((key) => key !== id);
 
@@ -106,22 +117,21 @@ const Desktop = () => {
 
     setWindows({...newWindows, [id]: true });
 
-    const newFolders = folders.map((folder) => {
-      if (folder.id === id) {
-        folder.visible = true;
-        folder.inactive = false;
-      }
-
-      return folder;
-    });
-
-    setFolders(newFolders);
+    setNewFolders(id, true, false);
   }
 
+  /**
+   * Checks if a folder exists.
+   * @param id - Id of the folder.
+   * @returns {FolderProps}
+   */
   const folderExist = (id: string) => {
     return folders.find((folder) => folder.id === id);
   }
 
+  /**
+   * Handles click on the project's icon.
+   */
   const onProjects = () => {
     if (!folderExist("projects")) {
       const newFolders = [...folders, {
@@ -154,6 +164,9 @@ const Desktop = () => {
     }
   };
 
+  /**
+   * Handles click on the experience's icon.
+   */
   const onExperience = () => {
     if (!folderExist("experience")) {
       const newFolders = [...folders, {
@@ -220,6 +233,7 @@ const Desktop = () => {
               onClose={() => onFolderClose(folder.id)}
               onSelect={() => onFolderSelect(folder.id)}
               testId={folder.testId}
+              data-testid={folder.testId}
               top={folder.top}
               left={folder.left}
               visible={folder.visible}
@@ -230,35 +244,12 @@ const Desktop = () => {
         })}
       </>
 
-      <TaskBar>
-        <TaskBarLeft>
-          <StartButton onClick={onStart} data-testid="start-button-testid">
-            <StartIcon src={startIcon} alt="start-icon" />
-            Start
-          </StartButton>
-
-          <TaskDivider/>
-
-          <TaskBarWindows>
-            {!!folders.length && folders.map((folder) => {
-              const active: boolean = windows[folder.id as keyof Windows] || false;
-
-              return (
-                <TaskBarWindow key={folder.id} active={active && folder.visible} onClick={() => onFolderShow(folder.id)}>
-                  <TaskBarWindowIcon src={require(`../../images/${folder.icon}.png`)} />
-                  {folder.name}
-                </TaskBarWindow>
-              )
-            })}
-          </TaskBarWindows>
-        </TaskBarLeft>
-
-        <TaskBarTime>
-          <TaskBarTimeIcon src={calendarIcon} alt="calendar_icon" />
-          <TaskBarTimeIcon src={speakerIcon} alt="speaker_icon" />
-          <Clock/>
-        </TaskBarTime>
-      </TaskBar>
+      <TaskBar
+        onStart={onStart}
+        onFolderShow={onFolderShow}
+        folders={folders}
+        windows={windows}
+      />
     </StyledDesktop>
   )
 };

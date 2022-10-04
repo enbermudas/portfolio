@@ -21,7 +21,7 @@ const Icons = styled.div`
   grid-gap: 20px;
 `;
 
-const TaskBar = styled.div`
+const TaskBarFrame = styled.div`
   width: 100%;
   height: 30px;
   background: ${props => props.theme.colors.grayMain};
@@ -132,7 +132,7 @@ const TaskBarTimeIcon = styled.img`
 export {
   StyledDesktop,
   Icons,
-  TaskBar,
+  TaskBarFrame,
   TaskDivider,
   TaskBarLeft,
   StartButton,

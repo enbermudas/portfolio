@@ -73,7 +73,7 @@ describe("Components/Folder", () => {
       setInactive={() => {}}
     />));
 
-    const folderTitle = getByTestId("folder-title-testid");
+    const folderTitle = getByTestId("projects-folder-title-testid");
     fireEvent.click(folderTitle);
 
     expect(folderTitle).toHaveStyle("background: linear-gradient(270deg,#1085D2 0%,#00007B 100%)");
@@ -107,7 +107,7 @@ describe("Components/Folder", () => {
 
     fireEvent.click(document);
 
-    const folderTitle = getByTestId("folder-title-testid");
+    const folderTitle = getByTestId("projects-folder-title-testid");
     expect(folderTitle).toHaveStyle("background: linear-gradient(270deg,#ADADAD 0%,#7B7B7B 100%)");
   });
 });

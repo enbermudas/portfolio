@@ -79,7 +79,6 @@ const Desktop = () => {
       windowsToDisable.forEach((key) => newWindows[key as keyof Windows] = false);
 
       setWindows(newWindows);
-
     }
 
     const newFolders = folders.map((folder) => {

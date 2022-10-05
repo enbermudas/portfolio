@@ -63,3 +63,22 @@ Main Stack: Node.js (Express) — Javascript (Vue.js, React) — SQL (MySQL)
 Web application development (and ERP integration) for the internal process managment within the Pro-Home and Pro-Acce companies.`
   }
 ];
+
+export const binData = [
+  {
+    id: "bin_1",
+    icon: "notepad",
+    name: "DBMII",
+    text: `1.	"Spooks"
+2.	"Pounce Bounce"
+3.	"The Robot with Human Hair, Pt. 2½"
+4.	"Thug City"
+5.	"Need Money"
+6.	"Elder Goose"
+7.	"Heat Seeking Ghost of ???"
+8.	"Blue Dream"
+9.	"Privilously Poncheezied"
+10.	"Swan Soup"
+11.	"Purple Reign"`
+  }
+];

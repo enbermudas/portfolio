@@ -7,7 +7,7 @@ import Notepad from "src/components/Notepad";
 import IconsGrid from "./IconsGrid";
 import TaskBar from "./TaskBar";
 import { RootState } from "src/store";
-import { experienceData } from "src/data";
+import { experienceData, binData } from "src/data";
 
 const top = () => Math.random() * 200 + 200;
 const left = () => Math.random() * 600 + 200;
@@ -74,12 +74,22 @@ const Desktop = ({ windows }: DesktopProps) => {
     })} />, true);
   };
 
+  const onBin = () => {
+    openWindow("bin", "bin", "Papelera", <Folder files={binData.map((bin) => {
+      return {
+        id: bin.id,
+        icon: bin.icon,
+        name: bin.name,
+        onClick: () => openWindow(bin.id, bin.icon, bin.name, <Notepad text={bin.text} />, false)
+      }
+    })} />, true);
+  };
+
   const onTechnologies = () => { };
   const onEducation = () => { };
   const onContact = () => { };
   const onSendEmail = () => { };
   const onStart = () => { };
-  const onBin = () => { };
 
   return (
     <StyledDesktop data-testid="desktop-testid">

@@ -57,7 +57,7 @@ export const experienceData = [
   {
     id: "pro_acce",
     icon: "notepad",
-    name: "Pro-Acce C.A.",
+    name: "Pro-Acce",
     text: `Full-Stack web developer
 
     Web application development (and ERP integration) for the internal process managment within the Pro-Home and Pro-Acce companies.`

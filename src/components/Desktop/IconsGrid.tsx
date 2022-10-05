@@ -24,35 +24,35 @@ const IconsGrid = ({
     <Icons>
       <Icon
         title="Proyectos"
-        icon="projects"
+        icon="briefcase"
         onClick={onProjects}
         testId="projects-testid"
       />
 
       <Icon
         title="Experiencia"
-        icon="experience"
+        icon="pc"
         onClick={onExperience}
         testId="experience-testid"
       />
 
       <Icon
         title="Tecnologías"
-        icon="technologies"
+        icon="disks"
         onClick={onTechnologies}
         testId="technologies-testid"
       />
 
       <Icon
         title="Educación"
-        icon="education"
+        icon="array"
         onClick={onEducation}
         testId="education-testid"
       />
 
       <Icon
         title="Contacto"
-        icon="contact"
+        icon="phone"
         onClick={onContact}
         testId="contact-testid"
       />

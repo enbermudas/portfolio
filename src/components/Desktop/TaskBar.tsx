@@ -14,20 +14,17 @@ import startIcon from "../../images/start.png";
 import calendarIcon from "../../images/calendar_mini.png";
 import speakerIcon from "../../images/speaker_mini.png";
 import Clock from "./Clock";
-import { FolderProps } from "../Folder";
-import { Windows } from ".";
+import { WindowType } from "../Window";
 
 interface TaskBarProps {
   onStart: () => void,
-  onFolderShow: (id: string) => void,
-  folders: FolderProps[],
-  windows: Windows
+  onShowWindow: (id: string) => void,
+  windows: WindowType[]
 };
 
 const TaskBar = ({
   onStart,
-  onFolderShow,
-  folders,
+  onShowWindow,
   windows
 }: TaskBarProps) => {
   return (
@@ -41,13 +38,11 @@ const TaskBar = ({
         <TaskDivider />
 
         <TaskBarWindows>
-          {!!folders.length && folders.map((folder) => {
-            const active: boolean = windows[folder.id as keyof Windows] || false;
-
+          {!!windows.length && windows.map((window) => {
             return (
-              <TaskBarWindow key={folder.id} active={active && folder.visible} onClick={() => onFolderShow(folder.id)}>
-                <TaskBarWindowIcon src={require(`../../images/${folder.icon}.png`)} />
-                {folder.name}
+              <TaskBarWindow key={window.id} active={!window.inactive && window.visible} onClick={() => onShowWindow(window.id)}>
+                <TaskBarWindowIcon src={require(`../../images/${window.icon}.png`)} />
+                {window.name}
               </TaskBarWindow>
             )
           })}

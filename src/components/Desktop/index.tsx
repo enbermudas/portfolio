@@ -9,8 +9,9 @@ import IconsGrid from "./IconsGrid";
 import TaskBar from "./TaskBar";
 import Notification from "./Notification";
 import { RootState } from "src/store";
-import { experienceData, binData } from "src/data";
+import { experienceData, binData, infoData } from "src/data";
 import { NotificationType } from "src/store/models/notification";
+import { Padded } from "src/components/Window/Window.styled";
 
 const top = () => Math.random() * 200 + 200;
 const left = () => Math.random() * 600 + 200;
@@ -80,7 +81,7 @@ const Desktop = ({ windows, notification }: DesktopProps) => {
   };
 
   const onBin = () => {
-    openWindow("bin", "bin", t("bi "), <Folder files={binData.map((bin) => {
+    openWindow("bin", "bin", t("bin"), <Folder files={binData.map((bin) => {
       return {
         id: bin.id,
         icon: bin.icon,
@@ -88,6 +89,10 @@ const Desktop = ({ windows, notification }: DesktopProps) => {
         onClick: () => openWindow(bin.id, bin.icon, bin.name, <Notepad text={t(bin.text)} />, false)
       }
     })} />, true);
+  };
+
+  const onAbout = () => {
+    openWindow("about", "book", t("about"), <Padded>{t(infoData.about)}</Padded>, false);
   };
 
   const onTechnologies = () => { };
@@ -105,6 +110,7 @@ const Desktop = ({ windows, notification }: DesktopProps) => {
         onEducation={onEducation}
         onContact={onContact}
         onSendEmail={onSendEmail}
+        onAbout={onAbout}
         onBin={onBin}
       />
 

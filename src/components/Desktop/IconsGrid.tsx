@@ -9,6 +9,7 @@ interface IconsGridProps {
   onEducation: () => void;
   onContact: () => void;
   onSendEmail: () => void;
+  onAbout: () => void;
   onBin: () => void;
 }
 
@@ -19,6 +20,7 @@ const IconsGrid = ({
   onEducation,
   onContact,
   onSendEmail,
+  onAbout,
   onBin
 }: IconsGridProps) => {
   const { t } = useTranslation();
@@ -65,6 +67,13 @@ const IconsGrid = ({
         icon="send_email"
         onClick={onSendEmail}
         testId="send-email-testid"
+      />
+
+      <Icon
+        title={t("about")}
+        icon="book"
+        onClick={onAbout}
+        testId="about-testid"
       />
 
       <Icon

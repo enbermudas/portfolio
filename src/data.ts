@@ -49,3 +49,7 @@ export const binData = [
 11.	"Purple Reign"`
   }
 ];
+
+export const infoData = {
+  about: "about_text"
+};

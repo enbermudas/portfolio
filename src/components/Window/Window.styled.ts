@@ -149,7 +149,9 @@ const CallToAction = styled.div`
 `;
 
 const Padded = styled.div`
-  padding: 20px 20px 0 20px;
+  background: ${props => props.theme.colors.grayMain};
+  padding: 20px;
+  font-size: 18px;
 `;
 
 export {

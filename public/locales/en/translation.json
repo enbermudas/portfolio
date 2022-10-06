@@ -25,5 +25,7 @@
   "language_title": "Language",
   "language_text": "The language has been updated!",
   "ok": "Okay",
-  "start": "Start"
+  "start": "Start",
+  "about": "About",
+  "about_text": "This portfolio was created using: CRA and Typescript. Why windows 98? I don't know, I found it funny and challenging to replicate the visual aspect of that operating system. It's not a 100% faithful copy in terms of functionality/styles, but I tried to be as faithful as possible, taking some liberties in the creation process."
 }

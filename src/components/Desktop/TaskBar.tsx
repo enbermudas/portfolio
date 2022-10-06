@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
 import {
   TaskBarFrame,
   TaskDivider,
@@ -31,6 +32,7 @@ const TaskBar = ({
   windows
 }: TaskBarProps) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const onChangeLanguage = () => {
     const lng = i18n.language === "en" ? "es" : "en";
@@ -50,7 +52,7 @@ const TaskBar = ({
       <TaskBarLeft>
         <StartButton onClick={onStart} data-testid="start-button-testid">
           <StartIcon src={startIcon} alt="start-icon" />
-          Start
+          {t("start")}
         </StartButton>
 
         <TaskDivider />

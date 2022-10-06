@@ -107,7 +107,14 @@ const Desktop = ({ windows, notification }: DesktopProps) => {
     openWindow("education", "array", t("education"), <Padded>{t("education_text")}</Padded>, false);
   };
 
-  const onSendEmail = () => { };
+  const onSendEmail = () => {
+    const to = "enrique.bermudez.dev@gmail.com";
+    const subject = "Contact from Portfolio:";
+    const body = "Hi, Enrique,\n\nI just saw your portfolio and wanted to contact you!";
+    // eslint-disable-next-line no-restricted-globals
+    location.href = `mailto:${to}?&subject=${subject}&body=${body}`;
+  };
+
   const onStart = () => { };
 
   return (

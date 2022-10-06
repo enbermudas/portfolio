@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.0d7cf32c.css","mappings":"AAAA,WACE,iBACA,oGAKA","sources":["index.scss"],"sourcesContent":["@font-face {\r\n  font-family: \"MS98\";\r\n  src: local(\"MS98\"), url(\"../src/fonts/windows98.ttf\") format(\"truetype\");\r\n}\r\n\r\nbody {\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n"],"names":[],"sourceRoot":""}

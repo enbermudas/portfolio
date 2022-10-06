@@ -148,6 +148,10 @@ const CallToAction = styled.div`
   margin: 15px 0 10px 0;
 `;
 
+const Padded = styled.div`
+  padding: 20px 20px 0 20px;
+`;
+
 export {
   Wrapper,
   Frame,
@@ -163,5 +167,6 @@ export {
   AddressIcon,
   HandleDrag,
   Content,
-  CallToAction
+  CallToAction,
+  Padded
 };

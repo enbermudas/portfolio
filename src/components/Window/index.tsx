@@ -1,4 +1,5 @@
 import Draggable from "react-draggable";
+import { useTranslation } from "react-i18next";
 import { useRef } from "react";
 import { useClickAway } from "react-use";
 import { useClickInside } from "../../helpers";
@@ -19,8 +20,8 @@ import {
   Content,
   CallToAction
 } from "./Window.styled";
-import IconButton from "../IconButton";
-import Button from "../Button";
+import IconButton from "src/components/IconButton";
+import Button from "src/components/Button";
 
 export type WindowType = {
   id: string;
@@ -79,6 +80,7 @@ const Window = ({
   cancelText = "",
 }: WindowProps) => {
   const ref = useRef(null);
+  const { t } = useTranslation();
 
   const activateWindow = () => {
     onSelect();
@@ -107,29 +109,29 @@ const Window = ({
             <Title inactive={inactive} className="handle" data-testid={`${id}-window-title-testid`}>
               <TitleLeft>
                 <TitleIcon src={require(`../../images/${icon}.png`)} alt={name} />
-                <TitleText className="titleText">{name}</TitleText>
+                <TitleText className="titleText">{t(id)}</TitleText>
               </TitleLeft>
               <TitleButtons>
                 <IconButton context="minimize" onClick={onMinimize} testId="minimize-testid" />
-                <IconButton context="maximize" onClick={onMaximize} testId="maximize-testid" />
+                <IconButton context="maximize" onClick={onMaximize} disabled testId="maximize-testid" />
                 <IconButton context="close" onClick={onClose} testId="close-testid" />
               </TitleButtons>
             </Title>
 
             <Menu>
               <HandleDrag />
-              <MenuItem>File</MenuItem>
-              <MenuItem>Edit</MenuItem>
-              <MenuItem>View</MenuItem>
-              <MenuItem>Help</MenuItem>
+              <MenuItem>{t("file")}</MenuItem>
+              <MenuItem>{t("edit")}</MenuItem>
+              <MenuItem>{t("view")}</MenuItem>
+              <MenuItem>{t("help")}</MenuItem>
             </Menu>
 
             <Address>
               <HandleDrag />
-              Address
+              {t("address")}
               <AddressInput>
                 <AddressIcon src={require(`../../images/${icon}.png`)} alt={name} />
-                {name}
+                {t(id)}
               </AddressInput>
             </Address>
 

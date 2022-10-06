@@ -124,9 +124,10 @@ const TaskBarTime = styled.div`
   border-color: ${props => `${props.theme.colors.graySecondary} ${props.theme.colors.white} ${props.theme.colors.white} ${props.theme.colors.graySecondary}`};
 `;
 
-const TaskBarTimeIcon = styled.img`
+const TaskBarTimeIcon = styled("img")<{ pointer?: boolean }>`
   width: 16px;
   height: 16px;
+  ${props => props.pointer && `cursor: pointer;`}
 `;
 
 export {

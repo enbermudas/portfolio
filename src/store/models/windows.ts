@@ -5,6 +5,9 @@ import { RootModel } from ".";
 export const windows = createModel<RootModel>()({
   state: [] as WindowType[],
   reducers: {
+    resetWindows(state) {
+      return [];
+    },
     addWindow(state, payload) {
       const windowExists = state.find((window) => window.id === payload.id);
       if (!windowExists) return [...state, payload];

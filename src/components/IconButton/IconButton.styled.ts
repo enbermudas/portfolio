@@ -17,11 +17,12 @@ const StyledButton = styled.button`
     outline: none;
     border: none;
     text-shadow: 1px 1px 0px ${props => props.theme.colors.white};
+    cursor: default;
 
     > svg {
       transform: scale(1.5);
 
-      path {
+      path, rect {
         fill: ${props => props.theme.colors.graySecondary};
         filter: drop-shadow(1px 1px 0px ${props => props.theme.colors.white});
       }

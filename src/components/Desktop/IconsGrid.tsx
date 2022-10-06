@@ -1,5 +1,6 @@
+import { useTranslation } from "react-i18next";
 import { Icons } from "./Desktop.styled";
-import Icon from "../Icon";
+import Icon from "src/components/Icon";
 
 interface IconsGridProps {
   onProjects: () => void;
@@ -20,52 +21,54 @@ const IconsGrid = ({
   onSendEmail,
   onBin
 }: IconsGridProps) => {
+  const { t } = useTranslation();
+
   return (
     <Icons>
       <Icon
-        title="Proyectos"
+        title={t("projects")}
         icon="briefcase"
         onClick={onProjects}
         testId="projects-testid"
       />
 
       <Icon
-        title="Experiencia"
+        title={t("experience")}
         icon="pc"
         onClick={onExperience}
         testId="experience-testid"
       />
 
       <Icon
-        title="Tecnologías"
+        title={t("technologies")}
         icon="disks"
         onClick={onTechnologies}
         testId="technologies-testid"
       />
 
       <Icon
-        title="Educación"
+        title={t("education")}
         icon="array"
         onClick={onEducation}
         testId="education-testid"
       />
 
       <Icon
-        title="Contacto"
+        title={t("contact")}
         icon="phone"
         onClick={onContact}
         testId="contact-testid"
       />
 
       <Icon
-        title="Enviar un correo"
+        title={t("send_email")}
         icon="send_email"
         onClick={onSendEmail}
         testId="send-email-testid"
       />
 
       <Icon
-        title="Papelera"
+        title={t("bin")}
         icon="bin"
         onClick={onBin}
         testId="bin-testid"

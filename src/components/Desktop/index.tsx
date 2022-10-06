@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import { StyledDesktop } from "./Desktop.styled";
 import Window, { WindowType } from "src/components/Window";
@@ -6,18 +7,22 @@ import Folder from "src/components/Folder";
 import Notepad from "src/components/Notepad";
 import IconsGrid from "./IconsGrid";
 import TaskBar from "./TaskBar";
+import Notification from "./Notification";
 import { RootState } from "src/store";
 import { experienceData, binData } from "src/data";
+import { NotificationType } from "src/store/models/notification";
 
 const top = () => Math.random() * 200 + 200;
 const left = () => Math.random() * 600 + 200;
 
 interface DesktopProps {
-  windows: WindowType[]
+  windows: WindowType[];
+  notification: NotificationType;
 }
 
-const Desktop = ({ windows }: DesktopProps) => {
+const Desktop = ({ windows, notification }: DesktopProps) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const openWindow = (id: string, icon: string, name: string, content: JSX.Element, isFolder: boolean) => {
     const newWindow: WindowType = {
@@ -53,7 +58,7 @@ const Desktop = ({ windows }: DesktopProps) => {
   }
 
   const onProjectsIconClick = () => {
-    openWindow("projects", "briefcase", "Proyectos", <Folder files={[
+    openWindow("projects", "briefcase", t("projects"), <Folder files={[
       {
         id: "types-doodler",
         icon: "link",
@@ -64,23 +69,23 @@ const Desktop = ({ windows }: DesktopProps) => {
   };
 
   const onExperienceIconClick = () => {
-    openWindow("experience", "pc", "Experiencia", <Folder files={experienceData.map((exp) => {
+    openWindow("experience", "pc", t("experience"), <Folder files={experienceData.map((exp) => {
       return {
         id: exp.id,
         icon: exp.icon,
         name: exp.name,
-        onClick: () => openWindow(exp.id, exp.icon, exp.name, <Notepad text={exp.text} />, false)
+        onClick: () => openWindow(exp.id, exp.icon, exp.name, <Notepad text={t(exp.text)} />, false)
       }
     })} />, true);
   };
 
   const onBin = () => {
-    openWindow("bin", "bin", "Papelera", <Folder files={binData.map((bin) => {
+    openWindow("bin", "bin", t("bi "), <Folder files={binData.map((bin) => {
       return {
         id: bin.id,
         icon: bin.icon,
         name: bin.name,
-        onClick: () => openWindow(bin.id, bin.icon, bin.name, <Notepad text={bin.text} />, false)
+        onClick: () => openWindow(bin.id, bin.icon, bin.name, <Notepad text={t(bin.text)} />, false)
       }
     })} />, true);
   };
@@ -102,6 +107,8 @@ const Desktop = ({ windows }: DesktopProps) => {
         onSendEmail={onSendEmail}
         onBin={onBin}
       />
+
+      {notification.show && <Notification {...notification} />}
 
       <>
         {!!windows.length && windows?.map((window) => {
@@ -142,6 +149,7 @@ const Desktop = ({ windows }: DesktopProps) => {
 
 const mapState = (state: RootState) => ({
   windows: state.windows,
+  notification: state.notification
 });
 
 export default connect(mapState)(Desktop);

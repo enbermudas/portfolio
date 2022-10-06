@@ -16,9 +16,9 @@ Why windows 98? I don't know, I found it funny and challenging to replicate the 
 
 ### Tech stack
 
-Scaffolding: [create-react-app](https://create-react-app.dev/)
+Scaffolding: [Create React App](https://create-react-app.dev/)
 Internationalization: [react-i18next](https://react.i18next.com/)
-Styling: [styled-components](https://styled-components.com/)
+Styling: [Styled Components](https://styled-components.com/)
 Windows 98 Design System: [by Gleb](https://www.figma.com/community/file/769712367097929855)
 Windows 98 Icons: [by Alex Meub](https://win98icons.alexmeub.com/)
 State container: [Rematch](https://rematchjs.org/)

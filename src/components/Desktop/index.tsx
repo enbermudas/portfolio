@@ -63,8 +63,26 @@ const Desktop = ({ windows, notification }: DesktopProps) => {
       {
         id: "types-doodler",
         icon: "link",
-        name: "Types Doodler",
+        name: "TypesDoodler",
         onClick: () => window.open("https://enbermudez.github.io/types-doodler/", "_blank", "noopener,noreferrer")
+      },
+      {
+        id: "poetry",
+        icon: "link",
+        name: "Poetry",
+        onClick: () => window.open("https://enbermudas.github.io/poetry/", "_blank", "noopener,noreferrer")
+      },
+      {
+        id: "guessme",
+        icon: "link",
+        name: "Guess Me",
+        onClick: () => window.open("https://enbermudas.github.io/guessme/", "_blank", "noopener,noreferrer")
+      },
+      {
+        id: "tetris",
+        icon: "link",
+        name: "Tetris",
+        onClick: () => window.open("https://enbermudas.github.io/tetris/", "_blank", "noopener,noreferrer")
       }
     ]} />, true);
   };

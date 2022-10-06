@@ -58,31 +58,35 @@ const Desktop = ({ windows, notification }: DesktopProps) => {
     dispatch.windows.setInactive({ id, type });
   }
 
+  const openLink = (url: string) => {
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
   const onProjectsIconClick = () => {
     openWindow("projects", "briefcase", t("projects"), <Folder files={[
       {
         id: "types-doodler",
         icon: "link",
         name: "TypesDoodler",
-        onClick: () => window.open("https://enbermudez.github.io/types-doodler/", "_blank", "noopener,noreferrer")
+        onClick: () => openLink("https://enbermudez.github.io/types-doodler/")
       },
       {
         id: "poetry",
         icon: "link",
         name: "Poetry",
-        onClick: () => window.open("https://enbermudas.github.io/poetry/", "_blank", "noopener,noreferrer")
+        onClick: () => openLink("https://enbermudas.github.io/poetry/")
       },
       {
         id: "guessme",
         icon: "link",
         name: "Guess Me",
-        onClick: () => window.open("https://enbermudas.github.io/guessme/", "_blank", "noopener,noreferrer")
+        onClick: () => openLink("https://enbermudas.github.io/guessme/")
       },
       {
         id: "tetris",
         icon: "link",
         name: "Tetris",
-        onClick: () => window.open("https://enbermudas.github.io/tetris/", "_blank", "noopener,noreferrer")
+        onClick: () => openLink("https://enbermudas.github.io/tetris/")
       }
     ]} />, true);
   };

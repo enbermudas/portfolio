@@ -9,7 +9,7 @@ import IconsGrid from "./IconsGrid";
 import TaskBar from "./TaskBar";
 import Notification from "./Notification";
 import { RootState } from "src/store";
-import { experienceData, binData, infoData } from "src/data";
+import { experienceData, binData } from "src/data";
 import { NotificationType } from "src/store/models/notification";
 import { Padded } from "src/components/Window/Window.styled";
 
@@ -92,12 +92,21 @@ const Desktop = ({ windows, notification }: DesktopProps) => {
   };
 
   const onAbout = () => {
-    openWindow("about", "book", t("about"), <Padded>{t(infoData.about)}</Padded>, false);
+    openWindow("about", "book", t("about"), <Padded>{t("about_text")}</Padded>, false);
   };
 
-  const onTechnologies = () => { };
-  const onEducation = () => { };
-  const onContact = () => { };
+  const onContact = () => {
+    openWindow("contact", "phone", t("contact"), <Padded>{t("contact_text")}</Padded>, false);
+  };
+
+  const onTechnologies = () => {
+    openWindow("technologies", "disks", t("technologies"), <Padded>{t("technologies_text")}</Padded>, false);
+  };
+
+  const onEducation = () => {
+    openWindow("education", "array", t("education"), <Padded>{t("education_text")}</Padded>, false);
+  };
+
   const onSendEmail = () => { };
   const onStart = () => { };
 

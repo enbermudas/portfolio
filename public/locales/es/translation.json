@@ -27,5 +27,8 @@
   "ok": "Está bien",
   "start": "Inicio",
   "about": "Acerca de",
-  "about_text": "Este portafolios fue creado utilizando: CRA y Typescript. ¿Por qué windows 98? No lo sé, me pareció gracioso y desafiante el replicar el aspecto visual de ese sistema operativo. No es una copia 100% fiel en términos de funcionalidad/estilos, pero intenté ser lo más fiel posible, tomándome algunas libertades en el proceso de creación."
+  "about_text": "Este portafolios fue creado utilizando: CRA y Typescript. ¿Por qué windows 98? No lo sé, me pareció gracioso y desafiante el replicar el aspecto visual de ese sistema operativo. No es una copia 100% fiel en términos de funcionalidad/estilos, pero intenté ser lo más fiel posible, tomándome algunas libertades en el proceso de creación.",
+  "contact_text": "LinkedIn: linkedin.com/in/enbermudez\nGithub: github.com/enbermudez\nNúmero de Teléfono: +54 342 629 5266\nCorreo eléctronico: enrique.bermudez.dev@gmail.com",
+  "technologies_text": "Languages: Javascript, Typescript, Python\nLibraries: Node.js, Next.js, Express.js, Redux, Jest, Cypress\nTools: Git, Linux, Jira",
+  "education_text": "Universidad José Antonio Páez: Ingenierio en Computación"
 }

@@ -152,6 +152,7 @@ const Padded = styled.div`
   background: ${props => props.theme.colors.grayMain};
   padding: 20px;
   font-size: 18px;
+  white-space: pre-wrap;
 `;
 
 export {

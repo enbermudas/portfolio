@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-[Live Demo](https://github.com/enbermudas/portfolio)
+[Live Demo](https://enbermudas.github.io/portfolio)
 
 ## Start locally
 
